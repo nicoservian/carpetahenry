@@ -30,7 +30,7 @@ Si el usuario no tiene fotos reales, decirlo claro: **no se inventan fotos del p
 Formato de todas: cuadrada, 1200 × 1200 px, JPG.
 
 ## Pasos
-1. **Sacar el fondo** de cada foto real con `remove-background` de Canva (o pedir la foto ya recortada).
+1. **Sacar el fondo** de cada foto real con `remove-background` de Canva. Con Canva gratis eso no funciona: pedirle al usuario que pase la foto por **remove.bg** (gratis, alcanza la descarga chica) y la suba a la carpeta de Canva. Toda foto con fondo de paisaje, calle o sombra (sobre todo la del auto) tiene que llegar recortada: pegada como rectángulo sobre el blanco queda muy mal. Mirar el ejemplo del usuario si hay uno y copiar ese estilo: fondo blanco, piezas reales, sin títulos ni adornos.
 2. **Armar la portada** con el script, que solo escala proporcionalmente y por eso no puede deformar:
    ```bash
    python scripts/armar_portada.py --salida portada.jpg pieza1.png pieza2.png ...
