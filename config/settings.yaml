@@ -1,0 +1,39 @@
+# ============================================================
+#  Configuración GENERAL del robot.
+#  Lo que pongas acá vale para todos los proveedores, salvo que
+#  el config.yaml del proveedor diga otra cosa.
+# ============================================================
+
+general:
+  # true  = hace todo MENOS subir a ComercioCity (solo genera los archivos).
+  # Dejalo en true hasta que confíes en el robot.
+  modo_simulacion: true
+  # Verificar Internet antes de empezar.
+  verificar_internet: true
+
+navegador:
+  # false = ves la ventana de Chrome (desarrollo). true = invisible.
+  headless: false
+  # "chrome" usa el Google Chrome instalado. "chromium" usa el de Playwright.
+  canal: chrome
+  # Milisegundos máximos que espera un elemento o una página.
+  timeout_ms: 30000
+  # Milisegundos de pausa entre acciones (útil para mirar en desarrollo; 0 en producción).
+  lentitud_ms: 0
+
+reintentos:
+  # Intentos totales por proveedor ante errores TEMPORALES (timeout, caída, etc.).
+  intentos: 3
+  # Segundos de espera antes del 2º intento; después se duplica (30, 60, 120...).
+  espera_segundos: 30
+
+# Límites de seguridad POR DEFECTO. Cada proveedor puede sobrescribirlos
+# en su propio config.yaml, sección "validaciones".
+validaciones:
+  minimo_productos: 1               # menos que esto → DETENER
+  caida_maxima_productos_pct: 30    # si hay 30% menos productos que lo habitual → DETENER
+  aumento_maximo_productos_pct: 50  # si hay 50% más → ADVERTENCIA
+  variacion_precio_alerta_pct: 25   # un producto que sube/baja más de 25% → ADVERTENCIA
+  productos_con_variacion_max_pct: 20  # si más del 20% de productos varía fuerte → DETENER
+  permitir_precio_cero: false
+  permitir_stock_negativo: false

@@ -1,0 +1,10 @@
+# Proveedor de PRUEBA (Etapa 1) que FALLA a propósito con un error temporal.
+# Sirve para ver los reintentos y comprobar que el agente sigue con los demás.
+# Cuando tengas proveedores reales, poné habilitado: false.
+nombre: Demo con error
+habilitado: true
+prioridad: 2
+credencial: ""
+descarga:
+  metodo: simulada
+  simular: error_temporal

@@ -1,0 +1,75 @@
+# ============================================================
+#  PLANTILLA de proveedor.
+#  Para agregar un proveedor:
+#    1. Copiá esta carpeta "_plantilla" con el nombre del proveedor
+#       (minúsculas, sin espacios: ej. "proveedor_fras_le").
+#    2. Completá este archivo.
+#    3. Poné habilitado: true.
+#  Las carpetas que empiezan con "_" el robot las ignora.
+# ============================================================
+
+nombre: Nombre visible del proveedor
+habilitado: false
+prioridad: 50            # menor número = se procesa antes
+
+# Días en que se procesa (lun, mar, mie, jue, vie, sab, dom). Vacío = todos.
+dias: []
+
+# Nombre de la credencial (ver .env.example). Vacío si no requiere login.
+credencial: NOMBRE
+
+descarga:
+  # "receta"   = login y descarga genérica con los datos de abajo.
+  # "modulo"   = el proveedor tiene su propio descarga.py en esta carpeta.
+  # "simulada" = solo para pruebas.
+  metodo: receta
+  url_login: https://www.proveedor.com/login
+  # Cómo encontrar los campos. Se busca por el TEXTO VISIBLE (label/placeholder).
+  login:
+    campo_usuario: "Usuario"
+    campo_clave: "Contraseña"
+    boton_ingresar: "Ingresar"
+    # Texto que aparece SOLO cuando el login salió bien (para confirmar).
+    texto_ok: "Mi cuenta"
+  url_descarga: https://www.proveedor.com/listas
+  # Texto del enlace o botón que descarga la lista.
+  boton_descarga: "Descargar lista de precios"
+
+archivo:
+  tipo: xlsx                     # xlsx, xls, csv, txt
+  nombre_esperado: "lista*.xlsx" # patrón; * = cualquier cosa
+  hoja: 0                        # número u nombre de hoja (Excel)
+  separador: ";"                 # solo csv/txt
+  fila_encabezado: auto          # auto o número de fila (1 = primera)
+
+# Columna del archivo del proveedor → campo estándar del robot.
+# Si dejás alguna vacía, el robot intenta detectarla sola.
+columnas:
+  provider_code: "Código"
+  oem: ""
+  description: "Descripción"
+  brand: "Marca"
+  price: "Precio"
+  stock: "Stock"
+  iva: ""
+  applications: ""
+
+transformaciones:
+  precio_incluye_iva: false
+  iva_por_defecto: 21
+  descuento_pct: 0               # descuento fijo que te hace el proveedor
+  # Cómo interpretar stock de texto:
+  stock_texto:
+    "SI": 1
+    "NO": 0
+    "CONSULTAR": 0
+
+actualizacion:
+  actualizar_precio: true
+  actualizar_stock: true
+  # Cómo se identifica este proveedor dentro de ComercioCity:
+  codigo_proveedor_comerciocity: ""
+
+# Límites propios (si no se ponen, se usan los de config/settings.yaml)
+validaciones:
+  minimo_productos: 100

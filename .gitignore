@@ -1,3 +1,18 @@
-salida/
+# Python
 __pycache__/
+.venv/
+
+# Credenciales: NUNCA a git
 .env
+
+# Datos que genera el robot (se crean solos)
+salida/
+descargas/
+procesados/
+historico/
+logs/
+reportes/
+backups/
+sesiones/
+comerciocity/salida/
+robot.lock

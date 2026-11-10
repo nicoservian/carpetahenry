@@ -1,0 +1,10 @@
+# Proveedor de PRUEBA (Etapa 1). No abre ningún sitio.
+# Sirve para comprobar que el agente recorre proveedores y genera el log.
+# Cuando tengas proveedores reales, poné habilitado: false.
+nombre: Demo OK
+habilitado: true
+prioridad: 1
+credencial: ""
+descarga:
+  metodo: simulada
+  simular: ok

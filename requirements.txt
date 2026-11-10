@@ -1,0 +1,6 @@
+playwright>=1.47
+pandas>=2.2
+openpyxl>=3.1
+pyyaml>=6.0
+python-dotenv>=1.0
+keyring>=25.0
